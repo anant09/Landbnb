@@ -1,2 +1,2 @@
-Create Virtual Environment,
-Install django 1.9 or below 
+Install django 1.9,
+have a database called as "hello" in mysql and provide appropriate username and password in setting.py
