@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+	
+
+{% block head %}
+	
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css '%}"
+
+
+
+{% endblock %}
+
+{% block content %}
+    
+
+
+			
+			<br /> 
+				Your request has been recorded,please await confirmation email
+		
+			<br /> 
+		
+    
+		<button type="button" onclick="window.location.href='/home/' ">Back to home</button>
+		
+		<br/>
+		<br/>
+
+		<button type="button" onclick="window.location.href='/logout/' ">Logout</button>
+{% endblock %}

@@ -1,0 +1,38 @@
+<!-- home.html -->
+
+
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+	{% block title %}
+		Welcome to LandBnB
+	{% endblock %}
+
+{% block head %}
+	
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css '%}"
+
+
+
+{% endblock %}
+
+{% block content %}
+    
+
+
+		<h1> 
+			Welcome {{ user.username }} !!! 
+			<br /> 
+			
+		
+			<br /> 
+		</h1>
+    
+		<button type="button" onclick="window.location.href='/step2/about/' ">Request Courier</button>
+		
+		<br/>
+		<br/>
+
+		<button type="button" onclick="window.location.href='/logout/' ">Logout</button>
+{% endblock %}

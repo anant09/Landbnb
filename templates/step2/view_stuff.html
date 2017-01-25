@@ -1,0 +1,43 @@
+
+
+{% extends "base.html" %}
+{% block title %}All Books{% endblock %}
+{% block head %}All Books{% endblock %}
+{% block content %}
+
+        
+	<table id="example" class="display nowrap" cellspacing="10" width="100%">
+        <thead>
+            <tr>
+                <th>BOOK NAME</th>
+                <th>PRICE</th>
+                <th>SELLER</th>
+                <th>PHONE NO.</th>
+                
+            </tr>
+        </thead>
+	<tbody>	  
+			
+				
+			{% for book in boldmessage %}
+				<tr>
+				 	<td>             {{book.book_name}} </td>
+					<td>		 {{book.price}} </td>
+					<td> 		 {{book.user}} </td>
+					<td>		 {{book.phone}} </td>
+				</tr>
+				
+			{% endfor %}
+	</tbody>
+	</table>
+    
+    
+    
+ <br/>
+<br/>
+
+
+        
+    
+    <button type="button" onclick="window.location.href='/home/' ">Back</button>
+{% endblock %}

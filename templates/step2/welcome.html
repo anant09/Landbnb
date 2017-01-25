@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Courier{% endblock %}
+{% block head %}Courier{% endblock %}
+{% block content %}
+    
+        
+    
+    <form class="form" method="post" action="/step2/about/" >{% csrf_token %}
+        <input type="text" placeholder="Weight of item" name="weight">
+        <input type="text" placeholder="Approx Height" name="height">
+        <input type="text" placeholder="Approx Width" name="width">
+        <input type="text" placeholder="Approx Length" name="length">
+        <input type="text" placeholder="Courier from?" name="location_from">
+        <input type="text" placeholder="Deliver where?" name="location_to">
+        <button type="submit"  value="submit" id="add-button">Make Request</button>
+        
+    </form>
+    <button type="button" onclick="window.location.href='/home/' ">Back</button>
+{% endblock %}
+
