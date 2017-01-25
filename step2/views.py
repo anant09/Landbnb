@@ -38,7 +38,7 @@ def about(request):
     return render(request, 'step2/welcome.html', {'user':request.user})
 
 
-def view_courier(request, loc_to):
-    c = Courier.objects.get(location_to = loc_to)
+def view_courier(request, loc_from,loc_to):
+    c = Courier.objects.get(location_to = loc_to,location_from=loc_from)
     print c
     return HttpResponseRedirect('/home/')
