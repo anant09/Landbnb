@@ -14,3 +14,11 @@ class Courier(models.Model):
 	def __str__(self):
 		return self.user.username
 	
+	def __iter__(self):
+		return [self.weight,
+				self.height,
+				self.width,
+				self.length,
+				self.user,
+				self.location_from,
+				self.location_to]
