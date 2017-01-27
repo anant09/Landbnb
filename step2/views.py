@@ -8,6 +8,7 @@ from models import User
 import json
 from django.http import JsonResponse
 from django.core import serializers
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
     
@@ -40,7 +41,7 @@ def about(request):
 
     return render(request, 'step2/welcome.html', {'user':request.user})
 
-
+@login_required
 def view_courier(request, loc_from,loc_to):
     
     courier_dict={'Courier': Courier.objects.filter(location_to = loc_to,location_from=loc_from) }
@@ -49,7 +50,5 @@ def view_courier(request, loc_from,loc_to):
         print key,value
     print "now json"
     response = JsonResponse(courier_dict, safe=False)
-    # courier_dict = serializers.serialize('json', self.get_queryset())
-    # courier_dict=json.dumps(courier_dict)
     print response
     return HttpResponseRedirect('/home/')

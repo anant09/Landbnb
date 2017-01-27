@@ -3,6 +3,9 @@ from django.shortcuts import render
 # Create your views here.
 #views.py
 from login.forms import *
+from django.conf import settings
+from django.contrib import messages
+from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_protect
@@ -23,6 +26,12 @@ def register(request):
             password=form.cleaned_data['password1'],
             email=form.cleaned_data['email']
             )
+            subject = 'Landbnb'
+            message = 'Welcome and thank you for registering! Use link to verify e-mail'
+            from_email = settings.EMAIL_HOST_USER
+            to_list = [form.cleaned_data['email'],settings.EMAIL_HOST_USER]
+
+            send_mail(subject,message,from_email,to_list,fail_silently = True)
             return HttpResponseRedirect('/register/success/')
     else:
         form = RegistrationForm()
