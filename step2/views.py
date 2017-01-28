@@ -55,8 +55,8 @@ def view_courier(request, loc_from,loc_to):
     courier_dict={'Courier': Courier.objects.filter(location_to = loc_to,location_from=loc_from) }
     # response_data = Courier.objects.get(location_to = loc_to,location_from=loc_from)
     for key,value in courier_dict.iteritems() :
-        print key,value
-    print "now json"
-    response = JsonResponse(courier_dict, safe=False)
-    print response
+        string_location=toString(value)
+        print "now json"
+        response = JsonResponse(string_location, safe=False)
+        print response
     return HttpResponseRedirect('/home/')

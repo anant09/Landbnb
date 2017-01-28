@@ -12,7 +12,7 @@ class Courier(models.Model):
 	location_to=models.CharField(max_length=200)
 	
 	def __str__(self):
-		return self.user.username
+		return self.location_from + "#" +self.location_to
 	
 	def __iter__(self):
 		return [self.weight,
