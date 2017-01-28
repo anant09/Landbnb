@@ -52,11 +52,19 @@ def about(request):
 @login_required
 def view_courier(request, loc_from,loc_to):
     
+    json_data = {}
+    i = 0
+    for items in Courier.objects.filter(location_to = loc_to,location_from=loc_from):
+        json_data[i] = ''
+        json_data[i] = json_data[i] + str(items.weight) + ':' + str(items.height) + ':' + str(items.width) + ':' + str(items.length) + ':' + items.location_to + ':' + items.location_from
+        print json_data[i]
+        i = i+1
     courier_dict={'Courier': Courier.objects.filter(location_to = loc_to,location_from=loc_from) }
     # response_data = Courier.objects.get(location_to = loc_to,location_from=loc_from)
-    for key,value in courier_dict.iteritems() :
-        print key,value
+
+    for key,value in json_data.iteritems():
+        print json_data[key]
     print "now json"
-    response = JsonResponse(courier_dict, safe=False)
+    response = JsonResponse(json_data, safe=False)
     print response
     return HttpResponseRedirect('/home/')

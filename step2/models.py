@@ -13,7 +13,7 @@ class Courier(models.Model):
 	
 	def __str__(self):
 		return self.user.username
-	
+
 	def __iter__(self):
 		return [self.weight,
 				self.height,
